@@ -29,3 +29,22 @@ class ArbolBinario:
     def inOrden(self):
         self._inOrden(self.raiz)
         print(end="\n")
+
+    def _contarHojas(self, nodo):
+        if nodo is None:
+            return 0
+        Iz = self._contarHojas(nodo.izquierda)
+        De = self._contarHojas(nodo.derecha)
+        return Iz + De + (1 if nodo.izquierda is None and nodo.derecha is None else 0)
+
+    def contarHojas(self):
+        return self._contarHojas(self.raiz)
+
+arbol = ArbolBinario()
+n = int(input("Ingrese el número de nodos: "))
+
+for i in range(n):
+    x = int(input("Ingrese un valor para agregar: "))
+    arbol.agregarValor(x)
+
+print(arbol.contarHojas())

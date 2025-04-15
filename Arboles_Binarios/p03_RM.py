@@ -38,7 +38,6 @@ class ArbolBinario:
         print(end="\n")
 
 arbol = ArbolBinario()
-
 n = int(input("Ingrese el número de nodos: "))
 
 for i in range(n):

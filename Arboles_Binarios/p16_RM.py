@@ -20,12 +20,20 @@ class ArbolBinario:
     def agregarValor(self, valor):
         self.raiz = self._agregarValor(self.raiz, valor)
 
-    def _inOrden(self, nodo):
-        if nodo is not None:
-            self._inOrden(nodo.izquierda)
-            print(nodo.valor, end=' -> ')
-            self._inOrden(nodo.derecha)
+    def _sumarNodos(self, nodo):
+        if nodo is None:
+            return 0
+        return nodo.valor + self._sumarNodos(nodo.izquierda) + self._sumarNodos(nodo.derecha)
+    
+    def sumarNodos(self):
+        return self._sumarNodos(self.raiz)
 
-    def inOrden(self):
-        self._inOrden(self.raiz)
-        print(end="\n")
+
+arbol = ArbolBinario()
+n = int(input("Ingrese el número de nodos: "))
+
+for i in range(n):
+    x = int(input("Ingrese un valor para agregar: "))
+    arbol.agregarValor(x)
+
+print(arbol.sumarNodos())

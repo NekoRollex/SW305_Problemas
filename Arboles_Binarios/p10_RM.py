@@ -29,3 +29,17 @@ class ArbolBinario:
     def inOrden(self):
         self._inOrden(self.raiz)
         print(end="\n")
+
+arbol = ArbolBinario()
+n = int(input("Ingrese el número de nodos: "))
+
+for i in range(n):
+    x = int(input("Ingrese un valor para agregar: "))
+    arbol.agregarValor(x)
+
+print("Recorrido inOrden")
+arbol.inOrden()
+valor = int(input("\nIngrese el valor para agregar: "))
+arbol.agregarValor(valor)
+print("Recorrido inOrden")
+arbol.inOrden()

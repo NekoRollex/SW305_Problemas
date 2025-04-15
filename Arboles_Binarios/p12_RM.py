@@ -20,24 +20,24 @@ class ArbolBinario:
     def agregarValor(self, valor):
         self.raiz = self._agregarValor(self.raiz, valor)
 
-    def _inOrden(self, nodo):
-        if nodo is not None:
-            self._inOrden(nodo.izquierda)
-            print(nodo.valor, end=' -> ')
-            self._inOrden(nodo.derecha)
+    def obtenerValorMinimo(self):
+        nodo = self.raiz
+        while nodo.izquierda is not None:
+            nodo = nodo.izquierda
+        return nodo.valor
 
-    def inOrden(self):
-        self._inOrden(self.raiz)
-        print(end="\n")
+    def obtenerValorMaximo(self):
+        nodo = self.raiz
+        while nodo.derecha is not None:
+            nodo = nodo.derecha
+        return nodo.valor
 
 arbol = ArbolBinario()
+n = int(input("Ingrese el número de nodos: "))
 
-arbol.agregarValor(5)
-arbol.agregarValor(3)
-arbol.agregarValor(7)
-arbol.agregarValor(2)
-arbol.agregarValor(4)
-arbol.agregarValor(6)
-arbol.agregarValor(8)
+for i in range(n):
+    x = int(input("Ingrese un valor para agregar: "))
+    arbol.agregarValor(x)
 
-arbol.inOrden()
+print("Valor mínimo:", arbol.obtenerValorMinimo())
+print("Valor máximo:", arbol.obtenerValorMaximo())
