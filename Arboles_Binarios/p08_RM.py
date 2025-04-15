@@ -1,68 +1,47 @@
-class NodoArbolBinario:
+class Nodo:
     def __init__(self, valor):
         self.valor = valor
-        self.left = None
-        self.right = None
+        self.izquierda = None
+        self.derecha = None
 
 class ArbolBinario:
     def __init__(self):
-        self.root = None
-        self.size = 0
-        self.max_depth = 0
+        self.raiz = None
 
-    def _add(self, nodo, valor, depth):
+    def _agregarValor(self, nodo, valor):
         if valor < nodo.valor:
-            if nodo.left is None:
-                nodo.left = NodoArbolBinario(valor)
-                self.max_depth = max(self.max_depth, depth + 1)
+            if nodo.izquierda is None:
+                nodo.izquierda = Nodo(valor)
             else:
-                self._add(nodo.left, valor, depth+1)
+                self._agregarValor(nodo.izquierda, valor)
         else:
-            if nodo.right is None:
-                nodo.right = NodoArbolBinario(valor)
-                self.max_depth = max(self.max_depth, depth + 1)
+            if nodo.derecha is None:
+                nodo.derecha = Nodo(valor)
             else:
-                self._add(nodo.right, valor, depth+1)
+                self._agregarValor(nodo.derecha, valor)
 
-    def add(self, valor):
-        self.size += 1
-        if self.root is None:
-            self.root = NodoArbolBinario(valor)
+    def agregarValor(self, valor):
+        if self.raiz is None:
+            self.raiz = Nodo(valor)
         else:
-            self._add(self.root, valor, 1)
+            self._agregarValor(self.raiz, valor)
 
-    def _print(self, nodo):
-        if nodo is not None:
-            self._print(nodo.left)
-            print(nodo.valor, end=' -> ')
-            self._print(nodo.right)
-
-    def print(self):
-        self._print(self.root)
-        print(end = "\n")
-
-    def _find_max_depth(self, nodo, depth):
+    def _calcularAltura(self, nodo, profundidad=1):
         if nodo is None:
-            return depth - 1
-        else:
-            return max(self._find_max_depth(nodo.left, depth + 1), 
-                       self._find_max_depth(nodo.right, depth + 1))
+            return profundidad-1
+        return max(self._calcularAltura(nodo.izquierda, profundidad+1),
+                    self._calcularAltura(nodo.derecha, profundidad+1))
 
-    def find_max_depth(self):
-        if self.root is None:
-            return 0
-        return self._find_max_depth(self.root, 1)
+    def calcularAltura(self):
+        return self._calcularAltura(self.raiz)
 
 arbol = ArbolBinario()
 
-arbol.add(5)
-arbol.add(3)
-arbol.add(7)
-arbol.add(2)
-arbol.add(4)
-arbol.add(6)
-arbol.add(8)
-arbol.add(1)
+n = int(input("Ingrese el número de nodos: "))
 
-print("Máxima profundidad:", arbol.max_depth)
-print("Máxima profundidad:", arbol.find_max_depth())
+for i in range(n):
+    x = int(input("Ingrese un valor para agregar: "))
+    arbol.agregarValor(x)
+
+print("Altura del árbol: ", arbol.calcularAltura())
+

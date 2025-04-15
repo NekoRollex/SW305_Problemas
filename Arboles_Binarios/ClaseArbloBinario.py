@@ -1,40 +1,38 @@
-class NodoArbolBinario:
+class Nodo:
     def __init__(self, valor):
         self.valor = valor
-        self.left = None
-        self.right = None
+        self.izquierda = None
+        self.derecha = None
 
 class ArbolBinario:
     def __init__(self):
-        self.root = None
-        self.size = 0
+        self.raiz = None
 
-    def _add(self, nodo, valor):
+    def _agregarValor(self, nodo, valor):
         if valor < nodo.valor:
-            if nodo.left is None:
-                nodo.left = NodoArbolBinario(valor)
+            if nodo.izquierda is None:
+                nodo.izquierda = Nodo(valor)
             else:
-                self._add(nodo.left, valor)
+                self._agregarValor(nodo.izquierda, valor)
         else:
-            if nodo.right is None:
-                nodo.right = NodoArbolBinario(valor)
+            if nodo.derecha is None:
+                nodo.derecha = Nodo(valor)
             else:
-                self._add(nodo.right, valor)
+                self._agregarValor(nodo.derecha, valor)
 
-    def add(self, valor):
-        self.size += 1
-        if self.root is None:
-            self.root = NodoArbolBinario(valor)
+    def agregarValor(self, valor):
+        if self.raiz is None:
+            self.raiz = Nodo(valor)
         else:
-            self._add(self.root, valor)
+            self._agregarValor(self.raiz, valor)
 
-    def _print(self, nodo):
+
+    def _inOrden(self, nodo):
         if nodo is not None:
-            self._print(nodo.left)
+            self._inOrden(nodo.izquierda)
             print(nodo.valor, end=' -> ')
-            self._print(nodo.right)
+            self._inOrden(nodo.derecha)
 
-    def print(self):
-        self._print(self.root)
-        print(end = "\n")
-
+    def inOrden(self):
+        self._inOrden(self.raiz)
+        print(end="\n")
