@@ -24,3 +24,20 @@ class Pila:
             
     def is_empty(self):
         return self.cima is None
+    
+    def print(self):
+        nodo = self.cima
+        print("Pila: ", end="")
+        while nodo is not None:
+            print(nodo.valor, end=" -> ")
+            nodo = nodo.siguiente
+        print(end="\n")
+
+pila = Pila()
+n = int(input("Ingrese el tamaño de la pila: "))
+
+for i in range(n):
+    valor = input("Ingrese el valor: ")
+    pila.push(valor)
+
+pila.print()
