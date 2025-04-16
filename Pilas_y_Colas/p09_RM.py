@@ -39,5 +39,34 @@ class Cola:
         while not self.is_empty():
             self.pop()
 
+    def contarNodos(self):
+        nodo = self.inicio
+        contador = 0
+        while nodo is not None:
+            contador += 1
+            nodo = nodo.siguiente
+        return contador
 
+cola = Cola()
+print("1. Agregar al final")
+print("2. Eliminar del inicio")
+print("3. Ver el inicio")
+print("4. Salir")
 
+while True:
+    op = input("Ingrese la operación: ")
+    if op == "1":
+        valor = input("Ingrese el valor a agregar: ")
+        cola.enqueue(valor)
+    elif op == "2":
+        cola.dequeue()
+    elif op == "3":
+        print(cola.peek())
+    elif op == "4":
+        print("Saliendo...")
+        break
+    else:
+        print("Operación no válida")
+
+cola.print()
+print("Cantidad de nodos en la cola:", cola.contarNodos())

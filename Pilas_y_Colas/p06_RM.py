@@ -28,16 +28,3 @@ class Cola:
             
     def is_empty(self):
         return self.inicio is None
-
-    def print(self):
-        nodo = self.inicio
-        while nodo is not None:
-            print(nodo.valor, end=(" -> " if nodo.siguiente is not None else "\n"))
-            nodo = nodo.siguiente
-
-    def clear(self):
-        while not self.is_empty():
-            self.pop()
-
-
-
