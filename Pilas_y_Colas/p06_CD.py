@@ -1,19 +1,19 @@
-class Pila:
+class Cola:
     def __init__(self):
         self.items = []
 
-    def push(self, valor):
+    def enqueue(self, valor):
         self.items.append(valor)
 
-    def pop(self):
+    def dequeue(self):
         if not self.is_empty():
-            return self.items.pop()
+            return self.items.pop(0)
         else:
-            raise IndexError("La pila esta vacia")
+            raise IndexError("La cola está vacía")
 
     def peek(self):
         if not self.is_empty():
-            return self.items[-1]
+            return self.items[0]
         return None
 
     def is_empty(self):
