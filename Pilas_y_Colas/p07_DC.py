@@ -7,14 +7,12 @@ class Cola:
     def __init__(self):
         self.front = None
         self.back = None
-        self.size = 0
 
     def enqueue(self, valor):
         nodo = NodoCola(valor)
         if self.back is not None:
             self.back.next = nodo
         self.back = nodo
-        self.size += 1
         if self.front is None:
             self.front = nodo
     
@@ -22,7 +20,6 @@ class Cola:
         if self.front is not None:
             nodo = self.front
             self.front = nodo.next
-            self.size -= 1
             if self.front is None:
                 self.back = None
             return nodo.valor
