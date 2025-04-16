@@ -23,5 +23,19 @@ class ListaEnlazada:
             print(nodo.valor, end=(" -> " if nodo.siguiente is not None else "\n"))
             nodo = nodo.siguiente
 
+lista = ListaEnlazada()
+print("1. Agregar")
+print("2. Salir")
 
+while True:
+    op = input("Ingrese la operación: ")
+    if op == "1":
+        valor = input("Ingrese el valor a agregar: ")
+        lista.insertar(valor)
+    elif op == "2":
+        print("Saliendo...")
+        break
+    else:
+        print("Operación no válida")
 
+lista.print()
