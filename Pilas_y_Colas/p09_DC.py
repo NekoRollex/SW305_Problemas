@@ -7,14 +7,12 @@ class Cola:
     def __init__(self):
         self.front = None
         self.back = None
-        self.size = 0
 
     def enqueue(self, valor):
         nodo = NodoCola(valor)
         if self.back is not None:
             self.back.next = nodo
         self.back = nodo
-        self.size += 1
         if self.front is None:
             self.front = nodo
     
@@ -22,7 +20,6 @@ class Cola:
         if self.front is not None:
             valor = self.front
             self.front = valor.next
-            self.size -= 1
             if self.front is None:
                 self.back = None
             return valor.valor
@@ -34,7 +31,7 @@ class Cola:
         return None
 
     def is_empty(self):
-        return self.size == 0
+        return self.front is None
 
     def print(self):
         nodo = self.front
@@ -43,7 +40,12 @@ class Cola:
             nodo = nodo.next
 
     def get_size(self):
-        return self.size
+        size = 0
+        nodo = self.front
+        while nodo is not None:
+            size += 1
+            nodo = nodo.next
+        return size
 
 cola = Cola()
 
@@ -51,7 +53,8 @@ cola.enqueue(10)
 cola.enqueue(20)
 cola.enqueue(30)
 cola.enqueue(40)
-print("Número de elementos en la cola:", cola.get_size())
 
 print("Contenido de la cola:")
 cola.print()
+
+print("Número de elementos en la cola:", cola.get_size())
