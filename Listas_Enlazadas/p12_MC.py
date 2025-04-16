@@ -13,7 +13,8 @@ class ListaEnlazada:
         if self.pinicio == None:
             self.pinicio = nuevoNodo
             self.pfinal = self.pinicio
-            self.pinicio.puntero = self.pfinal
+            # self.pinicio.puntero = self.pfinal
+            # genera bucle infinito cuando n = 1
         else:
             self.pfinal.puntero = nuevoNodo
             self.pfinal = self.pfinal.puntero
@@ -29,6 +30,7 @@ class ListaEnlazada:
     def elementoMedio(self):
         n = self.nElementos()
         medio = n//2
+        # print(n, medio)
         paux = self.pinicio
         i = 0
         while i != medio:
