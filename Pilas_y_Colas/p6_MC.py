@@ -37,6 +37,6 @@ print('Si quiere salir diguite "S"')
 v = None
 cola = Cola()
 while v != "S":
-    v = input("Ingrese un elemento en la pila: ")
+    v = input("Ingrese un elemento en la cola: ")
     if(v != "S"):
         cola.enqueque(v)
