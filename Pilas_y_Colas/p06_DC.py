@@ -7,23 +7,20 @@ class Cola:
     def __init__(self):
         self.front = None
         self.back = None
-        self.size = 0
 
     def enqueue(self, valor):
         nodo = NodoCola(valor)
         if self.back is not None:
             self.back.next = nodo
         self.back = nodo
-        self.size += 1
         if self.front is None:
             self.front = nodo
     
     def dequeue(self):
-        nodo = self.front
-        if nodo is not None:
+        if not self.is_empty():
+            nodo = self.front
             self.front = nodo.next
-            self.size -= 1
-            if self.front is None:
+            if self.front is None: 
                 self.back = None
 
     def peek(self):
@@ -32,7 +29,7 @@ class Cola:
         return None
             
     def is_empty(self):
-        return self.size == 0
+        return self.front is None
 
     def print(self):
         nodo = self.front
