@@ -121,10 +121,8 @@ class AVLTree:
             raiz.valor = temp.valor
             raiz.derecha = self.eliminar(raiz.derecha, temp.valor)
 
-        # Paso 2: Actualizar la altura del nodo
         raiz.altura = 1 + max(self.obtener_altura(raiz.izquierda), self.obtener_altura(raiz.derecha))
 
-        # Paso 3: Obtener el balance del nodo para ver si hay un desbalance
         balance = self.obtener_balance(raiz)
 
         # Casos de rotación (derecha-izquierda o izquierda-derecha)
