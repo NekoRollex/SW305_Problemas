@@ -108,3 +108,4 @@ for num in numeros:
     arbol.insertar_valor(num)
     print(f"Árbol después de insertar {num}:")
     arbol.recorrido_inorden(arbol.raiz)
+    print()
