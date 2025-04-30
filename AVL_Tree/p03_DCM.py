@@ -102,7 +102,6 @@ class AVLTree:
 
     # Eliminar un nodo en el árbol AVL
     def eliminar(self, raiz, valor):
-        # Paso 1: Realizar la eliminación convencional en el BST
         if not raiz:
             return raiz
 
