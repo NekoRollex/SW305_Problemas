@@ -1,6 +1,7 @@
 print("Se va a permutar los valores del 1 al n")
 n = int(input("n: "))
 
+# Generamos las permutaciones con una función recursiva
 def permutar(n, lista=[]):
     if len(lista) == n:
         print(lista)
