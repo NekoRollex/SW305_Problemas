@@ -28,20 +28,18 @@ class ArbolBinario:
             self.raiz = n
 
 def Backtracking(nodo, suma, ruta, rutasencontradas, sumadeseada):
-        if not nodo:
-            return
-
-        suma += nodo.valor
-        ruta.append(nodo.valor)
-
-        if not nodo.izquierdo and not nodo.derecho:
-            if suma == sumadeseada:
-                rutasencontradas[0] += 1 
-
-        Backtracking(nodo.izquierdo, suma, ruta, rutasencontradas, sumadeseada)
-        Backtracking(nodo.derecho, suma, ruta, rutasencontradas, sumadeseada)
-
-        ruta.pop()
+        if nodo:
+            suma += nodo.valor
+            ruta.append(nodo.valor)
+    
+            if not nodo.izquierdo and not nodo.derecho:
+                if suma == sumadeseada:
+                    rutasencontradas[0] += 1 
+    
+            Backtracking(nodo.izquierdo, suma, ruta, rutasencontradas, sumadeseada)
+            Backtracking(nodo.derecho, suma, ruta, rutasencontradas, sumadeseada)
+    
+            ruta.pop()
 
 def EncontrarRutas(arbol):
     suma = 0
