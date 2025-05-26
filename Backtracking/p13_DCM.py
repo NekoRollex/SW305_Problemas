@@ -1,3 +1,7 @@
+# Subset Sum Problem (Conjunto de suma objetivo)
+# Dado un conjunto de números y un valor objetivo, encontrar si existe un subconjunto cuya suma sea igual a ese valor.
+# Poda: Si la suma parcial ya excede el objetivo, se detiene.
+
 def subset_sum(num, objetivo, indice=0, suma_actual=0, sub_actual=[]):
     if suma_actual == objetivo:
         print("Subconjunto encontrado:", sub_actual)
