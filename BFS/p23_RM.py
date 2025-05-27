@@ -1,3 +1,8 @@
+# 23. Número mínimo de movimientos para convertir un número A en B, operaciones válidas: multiplicar
+#     por 2 o restar 1. ¿Cuántas operaciones mínimas se necesitan?
+#   - El estado se representa como un nodo. Muy usado en entrevistas.
+
+
 class Nodo:
     def __init__(self, valor):
         self.valor = valor
@@ -50,6 +55,7 @@ while True:
     if found:
         break
 
+b_original = b
 lista = [b]
 
 while b != a:
@@ -62,5 +68,5 @@ while b != a:
 
 lista.reverse()
 
-print("minimo numero de pasos:", dis[b])
+print("Minimo numero de pasos:", dis[b_original])
 print(lista)

@@ -1,3 +1,6 @@
+# 22. Camino más corto en un grafo no ponderado, dado un grafo no ponderado y dos nodos, encuentra el camino
+#     más corto entre ellos usando BFS.
+
 class Nodo:
     def __init__(self, valor):
         self.valor = valor
