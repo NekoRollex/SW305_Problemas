@@ -1,25 +1,27 @@
-#texto = input("Ingrese una oracion: ")
-texto = "estructura, algoritmo, cadena, texto, análisis"
-texto = texto.lower()
-texto = texto.replace("á", "a").replace("é", "e").replace("í", "i")\
+letras = "abcdefghijklmnñopqrstuvwxyz"
+
+frecuencia = [0] * len(letras)
+
+#oracion = input("Ingresa una oración: ")
+oracion = "estructura, algoritmo, cadena, texto, análisis"
+oracion.lower()
+oracion = oracion.replace("á", "a").replace("é", "e").replace("í", "i")\
              .replace("ó", "o").replace("ú", "u")
 
-frecuencia = [0] * 26
-
-for caracter in texto:
-    if 'a' <= caracter <= 'z':
-        indice = ord(caracter) - ord('a')
+for caracter in oracion:
+    if caracter in letras:
+        indice = letras.index(caracter)
         frecuencia[indice] += 1
 
-for i in range(26):
-    letra = chr(ord('a') + i)
-    print(f"{letra}: {frecuencia[i]}")
+print("\nFrecuencia de letras:")
+for i in range(len(letras)):
+    print(f"{letras[i]}: {frecuencia[i]}")
 
-max_frecuencia = max(frecuencia)
-letra_mas_frecuente = chr(frecuencia.index(max_frecuencia) + ord('a'))
-print("\nLetra más frecuente:", letra_mas_frecuente)
+max_frec = max(frecuencia)
+indice_max = frecuencia.index(max_frec)
+print("\nLetra mas frecuente:", letras[indice_max])
 
 print("Letras que no aparecen:")
-for i in range(26):
+for i in range(len(letras)):
     if frecuencia[i] == 0:
-        print(chr(ord('a') + i), end=" ")
+        print(letras[i], end=" ")
