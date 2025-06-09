@@ -18,10 +18,17 @@ for i in range(len(letras)):
     print(f"{letras[i]}: {frecuencia[i]}")
 
 max_frec = max(frecuencia)
-indice_max = frecuencia.index(max_frec)
-print("\nLetra mas frecuente:", letras[indice_max])
+letras_frecuentes = []
+for i in range(len(frecuencia)):
+    if frecuencia[i] == max_frec:
+        letras_frecuentes.append(letras[i])
+
+print("\nLetras más frecuentes:", ", ".join(letras_frecuentes))
+print("Frecuencia:", max_frec)
+
 
 print("Letras que no aparecen:")
 for i in range(len(letras)):
     if frecuencia[i] == 0:
         print(letras[i], end=" ")
+print()
