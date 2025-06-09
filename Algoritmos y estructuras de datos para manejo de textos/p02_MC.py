@@ -14,7 +14,6 @@ def BusquedaNaive(cadena: str , patron: str):
                 j += 1
             if j == n2:
                 nveces += 1
-                i = k-1
         i += 1
     return nveces
 
